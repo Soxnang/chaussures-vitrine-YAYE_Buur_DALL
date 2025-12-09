@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandales - Chaussures d'Élégance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+            <div class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../catalogue.html">Catalogue</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle active">Catégories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sandales.html" class="active">Sandales</a>
+                        <a href="nu-pieds.html">Nu-pieds</a>
+                        <a href="talons.html">Talons</a>
+                    
+                    </div>
+                </div>
+                <a href="../about.html">À propos</a>
+                <a href="../index.html#contact">Contact</a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <div class="container">
+            <div class="category-header-content">
+                <h1>Sandales</h1>
+                <p>Légères, confortables et stylées pour l'été</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-shoe-prints"></i> 12 modèles disponibles</span>
+                    <span><i class="fas fa-euro-sign"></i> À partir de 49,99€</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Description -->
+    <section class="category-description">
+        <div class="container">
+            <div class="description-content">
+                <div class="description-text">
+                    <h2>Sandales d'Été Élégantes</h2>
+                    <p>Nos sandales allient confort et style pour vos journées ensoleillées. Conçues avec des matériaux de qualité comme le cuir véritable, le liège et les tissus respirants, elles offrent un maintien optimal tout en laissant vos pieds respirer.</p>
+                    <p>Que vous recherchiez des sandales plates pour une balade en ville, des modèles à talons pour une soirée ou des sandales orthopédiques pour un confort maximal, notre collection saura répondre à vos attentes.</p>
+                    <div class="category-features">
+                        <div class="feature">
+                            <i class="fas fa-wind"></i>
+                            <h4>Respirantes</h4>
+                            <p>Matériaux qui laissent circuler l'air</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <h4>Résistantes à l'eau</h4>
+                            <p>Certains modèles adaptés à la plage</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h4>Confort optimal</h4>
+                            <p>Semelles ergonomiques et amortissantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="description-image">
+                    <img src="https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Collection de sandales">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Products -->
+    <section class="category-products">
+        <div class="container">
+            <div class="category-filters">
+                <div class="filter-controls">
+                    <select class="category-sort">
+                        <option value="default">Trier par : Par défaut</option>
+                        <option value="price-asc">Prix croissant</option>
+                        <option value="price-desc">Prix décroissant</option>
+                        <option value="newest">Nouveautés</option>
+                    </select>
+                    <div class="view-toggle">
+                        <span>Vue :</span>
+                        <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                        <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="categoryProducts">
+                <!-- Produits chargés dynamiquement -->
+            </div>
+            
+            <div class="category-cta">
+                <p>Vous ne trouvez pas votre bonheur ? Consultez notre <a href="../catalogue.html">catalogue complet</a> ou <a href="../index.html#contact">contactez-nous</a> pour une recherche personnalisée.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Categories -->
+    <section class="related-categories">
+        <div class="container">
+            <h2 class="section-title">Vous aimerez aussi</h2>
+            <div class="categories-grid">
+                <a href="nu-pieds.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds">
+                    </div>
+                    <div class="category-info">
+                        <h3>Nu-pieds</h3>
+                        <p>Élégance discrète et moderne</p>
+                        <span class="category-count">8 modèles</span>
+                    </div>
+                </a>
+                <a href="talons.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons">
+                    </div>
+                    <div class="category-info">
+                        <h3>Talons</h3>
+                        <p>Sophistication et hauteur</p>
+                        <span class="category-count">15 modèles</span>
+                    </div>
+                </a>
+                <a href="../catalogue.html" class="category-card view-all">
+                    <div class="category-image">
+                        <div class="view-all-content">
+                            <i class="fas fa-th-large"></i>
+                            <h3>Toutes les catégories</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+                    <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Mode, 75001 Paris</p>
+                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                        <p><i class="fas fa-envelope"></i> contact@chaussures-elegance.fr</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Catégories</h4>
+                    <a href="sandales.html" class="active">Sandales</a>
+                    <a href="nu-pieds.html">Nu-pieds</a>
+                    <a href="talons.html">Talons</a>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="../index.html">Accueil</a>
+                    <a href="../catalogue.html">Catalogue</a>
+                    <a href="../about.html">À propos</a>
+                    <a href="../index.html#contact">Contact</a>
+                    <a href="#">Livraison & Retours</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="payment-methods">
+                        <h4>Paiement Sécurisé</h4>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/catalogue.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        // Données des produits pour la catégorie sandales
+        const sandalesProducts = [
+            {
+                id: 1,
+                name: "Sandales Dorées à Talon",
+                category: "sandales",
+                price: 89.99,
+                image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Sandales élégantes avec talon moyen et finition dorée, parfaites pour les soirées d'été.",
+                color: "doré",
+                sizes: [36, 37, 38, 39, 40],
+                badge: "Nouveau"
+            },
+            {
+                id: 2,
+                name: "Sandales Plates en Cuir",
+                category: "sandales",
+                price: 65.99,
+                image: "https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Sandales confortables en cuir véritable, idéales pour la ville.",
+                color: "noir",
+                sizes: [37, 38, 39, 40, 41],
+                badge: "Populaire"
+            },
+            {
+                id: 3,
+                name: "Sandales de Plage Tressées",
+                category: "sandales",
+                price: 49.99,
+                image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Sandales légères et résistantes à l'eau, parfaites pour la plage.",
+                color: "beige",
+                sizes: [36, 37, 38, 39],
+                badge: null
+            },
+            {
+                id: 4,
+                name: "Sandales à Plateforme",
+                category: "sandales",
+                price: 79.99,
+                image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Sandales tendance avec plateforme confortable pour un style urbain.",
+                color: "blanc",
+                sizes: [37, 38, 39, 40],
+                badge: "Exclusif"
+            }
+        ];
+        
+        // Charger les produits dans la page
+        document.addEventListener('DOMContentLoaded', function() {
+            const productsContainer = document.getElementById('categoryProducts');
+            
+            if (productsContainer) {
+                sandalesProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-info">
+                            <span class="product-category">${product.category}</span>
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-footer">
+                                <span class="price">${product.price.toFixed(2)}€</span>
+                                <div class="product-actions">
+                                    <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                                    <button class="btn-add-cart">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    productsContainer.appendChild(productCard);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

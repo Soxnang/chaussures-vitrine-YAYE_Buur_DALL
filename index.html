@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaussures d'Élégance - Votre Boutique de Chaussures Premium</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Accueil</a>
+                <a href="catalogue.html">Catalogue</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Catégories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="categories/sandales.html">Sandales</a>
+                        <a href="categories/nu-pieds.html">Nu-pieds</a>
+                        <a href="categories/talons.html">Talons</a>
+                    </div>
+                </div>
+                <a href="about.html">À propos</a>
+                <a href="#contact">Contact</a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>L'Élégance à Chaque Pas</h1>
+            <p>Découvrez notre collection exclusive de chaussures artisanales pour toutes les occasions</p>
+            <div class="hero-buttons">
+                <a href="catalogue.html" class="btn">Explorer le Catalogue</a>
+                <a href="#categories" class="btn btn-outline">Nos Catégories</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Preview -->
+    <section id="categories" class="categories-preview">
+        <div class="container">
+            <h2 class="section-title">Nos Catégories</h2>
+            <p class="section-subtitle">Parcourez notre sélection par type de chaussures</p>
+            <div class="categories-grid">
+                <a href="categories/sandales.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales">
+                    </div>
+                    <div class="category-info">
+                        <h3>Sandales</h3>
+                        <p>Confort et légèreté pour l'été</p>
+                        <span class="category-count">12 modèles</span>
+                    </div>
+                </a>
+                <a href="categories/nu-pieds.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds">
+                    </div>
+                    <div class="category-info">
+                        <h3>Nu-pieds</h3>
+                        <p>Élégance discrète et moderne</p>
+                        <span class="category-count">8 modèles</span>
+                    </div>
+                </a>
+                <a href="categories/talons.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons">
+                    </div>
+                    <div class="category-info">
+                        <h3>Talons</h3>
+                        <p>Sophistication et hauteur</p>
+                        <span class="category-count">15 modèles</span>
+                    </div>
+                </a>
+                <a href="categories/baskets.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baskets">
+                    </div>
+                    <div class="category-info">
+                        <h3>Baskets</h3>
+                        <p>Style urbain et confort</p>
+                        <span class="category-count">10 modèles</span>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center">
+                <a href="catalogue.html" class="btn">Voir Toutes les Catégories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Nouveautés</h2>
+            <p class="section-subtitle">Découvrez nos dernières arrivées</p>
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Nouveau</div>
+                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales dorées">
+                    <div class="product-info">
+                        <span class="product-category">Sandales</span>
+                        <h3>Sandales Dorées Élégance</h3>
+                        <p>Sandales à talon moyen avec finition dorée, parfaites pour les soirées d'été.</p>
+                        <div class="product-footer">
+                            <span class="price">89,99€</span>
+                            <div class="product-actions">
+                                <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="btn-add-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Populaire</div>
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons hauts">
+                    <div class="product-info">
+                        <span class="product-category">Talons</span>
+                        <h3>Talons Hauts Classiques</h3>
+                        <p>Talons 10cm en cuir verni, confort exceptionnel grâce à son coussinet intégré.</p>
+                        <div class="product-footer">
+                            <span class="price">129,99€</span>
+                            <div class="product-actions">
+                                <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="btn-add-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Exclusif</div>
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds argentés">
+                    <div class="product-info">
+                        <span class="product-category">Nu-pieds</span>
+                        <h3>Nu-pieds Argentés</h3>
+                        <p>Design minimaliste avec strass, parfaits pour une touche de brillance discrète.</p>
+                        <div class="product-footer">
+                            <span class="price">65,99€</span>
+                            <div class="product-actions">
+                                <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="btn-add-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-preview-content">
+                <div class="about-preview-text">
+                    <h2>Notre Passion pour l'Élégance</h2>
+                    <p>Depuis 2005, Chaussures d'Élégance sélectionne avec soin les meilleures créations de chaussures, alliant confort, qualité et style.</p>
+                    <p>Notre mission est de vous offrir des chaussures qui vous font sentir belle et à l'aise à chaque pas.</p>
+                    <a href="about.html" class="btn">Découvrir Notre Histoire</a>
+                </div>
+                <div class="about-preview-image">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Notre boutique">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Restez Informés</h2>
+                <p>Inscrivez-vous à notre newsletter pour recevoir nos nouveautés et offres exclusives</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+                    <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Mode, 75001 Paris</p>
+                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                        <p><i class="fas fa-envelope"></i> contact@chaussures-elegance.fr</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Catégories</h4>
+                    <a href="categories/sandales.html">Sandales</a>
+                    <a href="categories/nu-pieds.html">Nu-pieds</a>
+                    <a href="categories/talons.html">Talons</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Accueil</a>
+                    <a href="catalogue.html">Catalogue</a>
+                    <a href="about.html">À propos</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Livraison & Retours</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="payment-methods">
+                        <h4>Paiement Sécurisé</h4>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

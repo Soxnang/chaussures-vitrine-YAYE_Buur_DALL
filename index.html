@@ -3,217 +3,752 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaussures d'Élégance - Votre Boutique de Chaussures Premium</title>
+    <title>Chaussures d'Élégance - Boutique de Chaussures</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/categories.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques pour correspondre au design de l'image */
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #8B7355;
+            --accent-color: #D4AF37;
+            --light-color: #F5F5F5;
+            --gray-color: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Hero Section - Correspondant à l'image */
+        .main-header {
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.95)), 
+                        url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            padding: 60px 0;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #7a6348;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 18px 40px;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+        
+        .category-content {
+            padding: 30px;
+        }
+        
+        .category-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .category-description {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .category-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .category-count {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Featured Products */
+        .featured-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-category {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .product-description {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-wishlist, .btn-cart {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .btn-wishlist {
+            background-color: #f8f8f8;
+            color: var(--gray-color);
+        }
+        
+        .btn-wishlist:hover {
+            background-color: #ffeaea;
+            color: #ff6b6b;
+        }
+        
+        .btn-cart {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-cart:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Newsletter */
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c2c2c 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.3);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-brand p {
+            color: #aaa;
+            margin-bottom: 30px;
+            max-width: 300px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .category-name {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
+    <nav class="main-nav">
+        <div class="nav-container">
             <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
             <div class="nav-links">
-                <a href="index.html" class="active">Accueil</a>
+                <a href="index.html">Accueil</a>
                 <a href="catalogue.html">Catalogue</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">Catégories <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu">
-                        <a href="categories/sandales.html">Sandales</a>
-                        <a href="categories/nu-pieds.html">Nu-pieds</a>
-                        <a href="categories/talons.html">Talons</a>
-                    </div>
-                </div>
+                <a href="categories/sandales.html">Catégories</a>
                 <a href="about.html">À propos</a>
                 <a href="#contact">Contact</a>
-                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
             </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="container hero-content">
-            <h1>L'Élégance à Chaque Pas</h1>
-            <p>Découvrez notre collection exclusive de chaussures artisanales pour toutes les occasions</p>
-            <div class="hero-buttons">
-                <a href="catalogue.html" class="btn">Explorer le Catalogue</a>
-                <a href="#categories" class="btn btn-outline">Nos Catégories</a>
+    <header class="main-header">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">L'Élégance à Chaque Pas</h1>
+                <p class="hero-subtitle">Découvrez notre collection exclusive de chaussures artisanales pour toutes les occasions</p>
+                <div class="hero-buttons">
+                    <a href="catalogue.html" class="btn-primary">Explorer le Catalogue</a>
+                    <a href="#categories" class="btn-secondary">Nos Catégories</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Categories Preview -->
-    <section id="categories" class="categories-preview">
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
         <div class="container">
-            <h2 class="section-title">Nos Catégories</h2>
-            <p class="section-subtitle">Parcourez notre sélection par type de chaussures</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Nos Catégories</h2>
+                <p class="section-subtitle">Parcourez notre sélection par type de chaussures</p>
+            </div>
             <div class="categories-grid">
-                <a href="categories/sandales.html" class="category-card">
+                <!-- Sandales -->
+                <div class="category-card fade-in">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales">
                     </div>
-                    <div class="category-info">
-                        <h3>Sandales</h3>
-                        <p>Confort et légèreté pour l'été</p>
-                        <span class="category-count">12 modèles</span>
+                    <div class="category-content">
+                        <h3 class="category-name">Sandales</h3>
+                        <p class="category-description">Confort et légèreté pour l'été</p>
+                        <div class="category-info">
+                            <span class="category-count">12 modèles</span>
+                        </div>
                     </div>
-                </a>
-                <a href="categories/nu-pieds.html" class="category-card">
+                </div>
+                
+                <!-- Nu-pieds -->
+                <div class="category-card fade-in">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds">
                     </div>
-                    <div class="category-info">
-                        <h3>Nu-pieds</h3>
-                        <p>Élégance discrète et moderne</p>
-                        <span class="category-count">8 modèles</span>
+                    <div class="category-content">
+                        <h3 class="category-name">Nu-pieds</h3>
+                        <p class="category-description">Élégance discrète et moderne</p>
+                        <div class="category-info">
+                            <span class="category-count">8 modèles</span>
+                        </div>
                     </div>
-                </a>
-                <a href="categories/talons.html" class="category-card">
+                </div>
+                
+                <!-- Talons -->
+                <div class="category-card fade-in">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons">
                     </div>
-                    <div class="category-info">
-                        <h3>Talons</h3>
-                        <p>Sophistication et hauteur</p>
-                        <span class="category-count">15 modèles</span>
+                    <div class="category-content">
+                        <h3 class="category-name">Talons</h3>
+                        <p class="category-description">Sophistication et hauteur</p>
+                        <div class="category-info">
+                            <span class="category-count">15 modèles</span>
+                        </div>
                     </div>
-                </a>
-                <a href="categories/baskets.html" class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baskets">
-                    </div>
-                    <div class="category-info">
-                        <h3>Baskets</h3>
-                        <p>Style urbain et confort</p>
-                        <span class="category-count">10 modèles</span>
-                    </div>
-                </a>
-            </div>
-            <div class="text-center">
-                <a href="catalogue.html" class="btn">Voir Toutes les Catégories</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Products -->
-    <section class="featured-products">
+    <section class="featured-section">
         <div class="container">
-            <h2 class="section-title">Nouveautés</h2>
-            <p class="section-subtitle">Découvrez nos dernières arrivées</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Nouveautés</h2>
+                <p class="section-subtitle">Découvrez nos dernières arrivées</p>
+            </div>
             <div class="products-grid">
                 <!-- Produit 1 -->
-                <div class="product-card">
-                    <div class="product-badge">Nouveau</div>
-                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales dorées">
-                    <div class="product-info">
-                        <span class="product-category">Sandales</span>
-                        <h3>Sandales Dorées Élégance</h3>
-                        <p>Sandales à talon moyen avec finition dorée, parfaites pour les soirées d'été.</p>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Nouveau</div>
+                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales Dorées">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Sandales</div>
+                        <h3 class="product-title">Sandales Dorées Élégance</h3>
+                        <p class="product-description">Sandales à talon moyen avec finition dorée, parfaites pour les soirées d'été.</p>
                         <div class="product-footer">
-                            <span class="price">89,99€</span>
+                            <div class="product-price">89,99€</div>
                             <div class="product-actions">
                                 <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="btn-add-cart">Ajouter</button>
+                                <button class="btn-cart"><i class="fas fa-shopping-bag"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Produit 2 -->
-                <div class="product-card">
-                    <div class="product-badge">Populaire</div>
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons hauts">
-                    <div class="product-info">
-                        <span class="product-category">Talons</span>
-                        <h3>Talons Hauts Classiques</h3>
-                        <p>Talons 10cm en cuir verni, confort exceptionnel grâce à son coussinet intégré.</p>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Populaire</div>
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons Hauts">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Talons</div>
+                        <h3 class="product-title">Talons Hauts Classiques</h3>
+                        <p class="product-description">Talons 10cm en cuir verni, confort exceptionnel grâce à son coussinet intégré.</p>
                         <div class="product-footer">
-                            <span class="price">129,99€</span>
+                            <div class="product-price">129,99€</div>
                             <div class="product-actions">
                                 <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="btn-add-cart">Ajouter</button>
+                                <button class="btn-cart"><i class="fas fa-shopping-bag"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Produit 3 -->
-                <div class="product-card">
-                    <div class="product-badge">Exclusif</div>
-                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds argentés">
-                    <div class="product-info">
-                        <span class="product-category">Nu-pieds</span>
-                        <h3>Nu-pieds Argentés</h3>
-                        <p>Design minimaliste avec strass, parfaits pour une touche de brillance discrète.</p>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Exclusif</div>
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds Argentés">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Nu-pieds</div>
+                        <h3 class="product-title">Nu-pieds Argentés</h3>
+                        <p class="product-description">Design minimaliste avec strass, parfaits pour une touche de brillance discrète.</p>
                         <div class="product-footer">
-                            <span class="price">65,99€</span>
+                            <div class="product-price">65,99€</div>
                             <div class="product-actions">
                                 <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="btn-add-cart">Ajouter</button>
+                                <button class="btn-cart"><i class="fas fa-shopping-bag"></i></button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="about-preview">
-        <div class="container">
-            <div class="about-preview-content">
-                <div class="about-preview-text">
-                    <h2>Notre Passion pour l'Élégance</h2>
-                    <p>Depuis 2005, Chaussures d'Élégance sélectionne avec soin les meilleures créations de chaussures, alliant confort, qualité et style.</p>
-                    <p>Notre mission est de vous offrir des chaussures qui vous font sentir belle et à l'aise à chaque pas.</p>
-                    <a href="about.html" class="btn">Découvrir Notre Histoire</a>
-                </div>
-                <div class="about-preview-image">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Notre boutique">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter">
+    <section class="newsletter-section">
         <div class="container">
-            <div class="newsletter-content">
-                <h2>Restez Informés</h2>
-                <p>Inscrivez-vous à notre newsletter pour recevoir nos nouveautés et offres exclusives</p>
+            <div class="newsletter-content fade-in">
+                <h2 class="newsletter-title">Restez Informés</h2>
+                <p class="newsletter-description">Inscrivez-vous à notre newsletter pour recevoir nos nouveautés et offres exclusives</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Votre adresse email" required>
-                    <button type="submit" class="btn">S'abonner</button>
+                    <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn-primary">S'abonner</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="main-footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+                <div class="footer-brand">
+                    <h3>Chaussures d'Élégance</h3>
                     <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Mode, 75001 Paris</p>
-                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                        <p><i class="fas fa-envelope"></i> contact@chaussures-elegance.fr</p>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Catégories</h4>
                     <a href="categories/sandales.html">Sandales</a>
                     <a href="categories/nu-pieds.html">Nu-pieds</a>
                     <a href="categories/talons.html">Talons</a>
+                    <a href="categories/baskets.html">Baskets</a>
+                    <a href="categories/bottes.html">Bottes</a>
                 </div>
                 <div class="footer-links">
                     <h4>Navigation</h4>
@@ -223,37 +758,113 @@
                     <a href="#contact">Contact</a>
                     <a href="#">Livraison & Retours</a>
                 </div>
-                <div class="footer-social">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                    <div class="payment-methods">
-                        <h4>Paiement Sécurisé</h4>
-                        <div class="payment-icons">
-                            <i class="fab fa-cc-visa"></i>
-                            <i class="fab fa-cc-mastercard"></i>
-                            <i class="fab fa-cc-paypal"></i>
-                            <i class="fab fa-cc-apple-pay"></i>
-                        </div>
-                    </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:contact@chaussures-elegance.fr">contact@chaussures-elegance.fr</a>
+                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="#">123 Avenue de la Mode, 75001 Paris</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Conditions générales</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/cart.js"></script>
+    <script>
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            fadeElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+            
+            // Gestion des boutons
+            document.querySelectorAll('.btn-wishlist').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        showNotification('Ajouté aux favoris');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        showNotification('Retiré des favoris');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.btn-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showNotification('Produit ajouté au panier');
+                });
+            });
+            
+            // Gestion du formulaire newsletter
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('.newsletter-input').value;
+                    showNotification('Merci pour votre inscription !');
+                    this.reset();
+                });
+            }
+            
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: var(--secondary-color);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 3000);
+            }
+            
+            // Ajouter les styles d'animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>

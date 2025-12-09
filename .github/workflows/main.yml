@@ -2,114 +2,45 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     
-    # Donner les permissions nécessaires
     permissions:
-      contents: write
-      pages: write
-      id-token: write
+      contents: write  # Donne l'accès en écriture pour pousser sur gh-pages
     
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Create directory structure
-        run: |
-          # Créer la structure minimale
-          mkdir -p css js images
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
           
-          # Créer index.html s'il n'existe pas
+      - name: Setup directory structure
+        run: |
+          mkdir -p css js images products categories
+          # S'assurer qu'il y a un index.html
           if [ ! -f index.html ]; then
-            cat > index.html << 'EOF'
-<!DOCTYPE html>
-<html lang="fr">
+            echo "<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaussures d'Élégance</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; background: #f8f9fa; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #2c3e50, #4a6491); color: white; padding: 100px 0; text-align: center; }
-        h1 { font-size: 3rem; margin-bottom: 20px; }
-        .btn { display: inline-block; background: #e74c3c; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; margin-top: 20px; }
-        .products { padding: 80px 0; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .product-info { padding: 20px; }
-        footer { background: #2c3e50; color: white; padding: 60px 0; text-align: center; margin-top: 80px; }
-    </style>
+    <style>body{font-family:Arial,sans-serif;text-align:center;padding:50px;}</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Chaussures d'Élégance</h1>
-            <p>Découvrez notre collection exclusive de chaussures artisanales</p>
-            <a href="#produits" class="btn">Voir la collection</a>
-        </div>
-    </header>
-    
-    <section class="products" id="produits">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Nos Catégories</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sandales">
-                    <div class="product-info">
-                        <h3>Sandales</h3>
-                        <p>Confort et légèreté pour l'été</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nu-pieds">
-                    <div class="product-info">
-                        <h3>Nu-pieds</h3>
-                        <p>Élégance discrète et moderne</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Talons">
-                    <div class="product-info">
-                        <h3>Talons</h3>
-                        <p>Sophistication et hauteur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
-            <p style="margin-top: 20px;">Site déployé avec GitHub Pages</p>
-        </div>
-    </footer>
+    <h1>Site Chaussures d'Élégance</h1>
+    <p>Le site est en cours de déploiement...</p>
 </body>
-</html>
-EOF
+</html>" > index.html
           fi
           
-          # Créer un fichier CSS simple
-          cat > css/style.css << 'EOF'
-/* Styles supplémentaires */
-.product-card { transition: transform 0.3s ease; }
-.product-card:hover { transform: translateY(-10px); }
-.btn:hover { background: #c0392b; transform: translateY(-2px); }
-EOF
-          
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
           force_orphan: true
+          enable_jekyll: false

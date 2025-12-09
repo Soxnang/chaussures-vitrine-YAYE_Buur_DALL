@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Create directory structure
+      run: |
+        mkdir -p css js images products categories
+        mkdir -p .github/workflows
+
+    - name: Create CSS files
+      run: |
+        # Créer style.css
+        echo "/* Le contenu de style.css */" > css/style.css
+        
+        # Créer categories.css
+        echo "/* Le contenu de categories.css */" > css/categories.css
+
+    - name: Create JS files
+      run: |
+        # Créer script.js
+        echo "// Le contenu de script.js" > js/script.js
+        
+        # Créer catalogue.js
+        echo "// Le contenu de catalogue.js" > js/catalogue.js
+        
+        # Créer cart.js
+        echo "// Le contenu de cart.js" > js/cart.js
+
+    - name: Create HTML files
+      run: |
+        # Créer les pages principales
+        echo "Création des pages HTML..."
+        
+        # Créer un fichier placeholder pour images
+        echo "# Images à ajouter" > images/README.md
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        keep_files: true

@@ -5,242 +5,845 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos - Chaussures d'Élégance</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/categories.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques pour la page À propos */
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #8B7355;
+            --accent-color: #D4AF37;
+            --light-color: #F5F5F5;
+            --gray-color: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+        
+        /* Page Header */
+        .about-header {
+            background: linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98)), 
+                        url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .about-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .about-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .story-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .story-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-color);
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .story-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .story-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-style: italic;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .value-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .value-card p {
+            color: var(--gray-color);
+            line-height: 1.6;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .member-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .team-member h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .member-bio {
+            color: var(--gray-color);
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 25px 30px;
+            background-color: white;
+            border: none;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        
+        .faq-answer p {
+            padding: 20px 0;
+            color: var(--gray-color);
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: #7a6348;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-brand p {
+            color: #aaa;
+            margin-bottom: 30px;
+            max-width: 300px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .story-image {
+                order: -1;
+            }
+            
+            .about-header h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-header p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .story-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .value-card {
+                padding: 30px 20px;
+            }
+            
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
+    <nav class="main-nav">
+        <div class="nav-container">
             <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
             <div class="nav-links">
                 <a href="index.html">Accueil</a>
                 <a href="catalogue.html">Catalogue</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">Catégories <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu">
-                        <a href="categories/sandales.html">Sandales</a>
-                        <a href="categories/nu-pieds.html">Nu-pieds</a>
-                        <a href="categories/talons.html">Talons</a>
-                    </div>
-                </div>
+                <a href="categories.html">Catégories</a>
                 <a href="about.html" class="active">À propos</a>
-                <a href="index.html#contact">Contact</a>
-                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
+                <a href="#contact">Contact</a>
             </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="about-header">
         <div class="container">
-            <h1>À Propos de Nous</h1>
-            <p>Notre histoire, notre passion, notre engagement</p>
+            <h1 class="fade-in">À Propos de Nous</h1>
+            <p class="fade-in">Notre histoire, notre passion, notre engagement</p>
         </div>
     </section>
 
-    <!-- About Story -->
-    <section class="about-story">
+    <!-- Story Section -->
+    <section class="story-section">
         <div class="container">
+            <h2 class="section-title fade-in">Notre Histoire</h2>
             <div class="story-content">
-                <div class="story-text">
-                    <h2>Notre Histoire</h2>
-                    <p>Fondée en 2005 par Marie Laurent, passionnée de mode et de design, <strong>Chaussures d'Élégance</strong> est née d'une vision simple : offrir aux femmes des chaussures qui allient confort, qualité et élégance.</p>
+                <div class="story-text fade-in">
+                    <h3>L'Élégance à Chaque Pas Depuis 2005</h3>
+                    <p>Fondée par <span class="highlight">Marie Laurent</span>, passionnée de mode et de design, <span class="highlight">Chaussures d'Élégance</span> est née d'une vision simple : offrir aux femmes des chaussures qui allient confort, qualité et élégance.</p>
                     <p>Partant d'une petite boutique parisienne, notre entreprise a grandi pour devenir une référence dans le secteur de la chaussure de qualité, tout en conservant notre engagement initial : une sélection rigoureuse et un service personnalisé.</p>
                     <p>Aujourd'hui, nous collaborons avec des artisans et créateurs à travers l'Europe pour vous proposer des collections uniques qui reflètent les dernières tendances sans jamais sacrifier le confort.</p>
+                    <p>Notre mission est de vous accompagner dans chaque étape de votre vie avec des chaussures qui vous font sentir belle, confiante et à l'aise.</p>
                 </div>
-                <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Notre première boutique">
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Notre première boutique">
                     <div class="story-caption">Notre première boutique en 2005</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values -->
-    <section class="values">
+    <!-- Values Section -->
+    <section class="values-section">
         <div class="container">
-            <h2 class="section-title">Nos Valeurs</h2>
+            <h2 class="section-title fade-in">Nos Valeurs</h2>
             <div class="values-grid">
-                <div class="value-card">
+                <div class="value-card fade-in">
                     <div class="value-icon">
                         <i class="fas fa-gem"></i>
                     </div>
-                    <h3>Qualité Exceptionnelle</h3>
-                    <p>Nous sélectionnons uniquement des matériaux premium et collaborons avec des artisans réputés pour leur savoir-faire.</p>
+                    <h4>Qualité Exceptionnelle</h4>
+                    <p>Nous sélectionnons uniquement des matériaux premium et collaborons avec des artisans réputés pour leur savoir-faire exceptionnel.</p>
                 </div>
-                <div class="value-card">
+                
+                <div class="value-card fade-in">
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>Confort Optimal</h3>
+                    <h4>Confort Optimal</h4>
                     <p>Chaque modèle est conçu pour offrir un maintien et un confort parfaits, même après de longues heures de port.</p>
                 </div>
-                <div class="value-card">
+                
+                <div class="value-card fade-in">
                     <div class="value-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Durabilité</h3>
+                    <h4>Durabilité</h4>
                     <p>Nous privilégions des matériaux durables et des méthodes de fabrication responsables pour réduire notre impact environnemental.</p>
                 </div>
-                <div class="value-card">
+                
+                <div class="value-card fade-in">
                     <div class="value-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3>Service Personnalisé</h3>
+                    <h4>Service Personnalisé</h4>
                     <p>Notre équipe experte est à votre écoute pour vous conseiller et vous accompagner dans votre choix.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team -->
-    <section class="team">
+    <!-- Team Section -->
+    <section class="team-section">
         <div class="container">
-            <h2 class="section-title">Notre Équipe</h2>
+            <h2 class="section-title fade-in">Notre Équipe</h2>
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Marie Laurent">
-                    <h3>Marie Laurent</h3>
-                    <p class="team-role">Fondatrice & Directrice</p>
-                    <p>15 ans d'expérience dans l'industrie de la mode et passionnée de design.</p>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Marie Laurent">
+                    </div>
+                    <h4>Marie Laurent</h4>
+                    <div class="member-role">Fondatrice & Directrice</div>
+                    <p class="member-bio">15 ans d'expérience dans l'industrie de la mode et passionnée de design. Marie supervise chaque collection.</p>
                 </div>
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w-400&q=80" alt="Thomas Martin">
-                    <h3>Thomas Martin</h3>
-                    <p class="team-role">Responsable des Achats</p>
-                    <p>Expert en sélection de matériaux et relations avec nos artisans partenaires.</p>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Thomas Martin">
+                    </div>
+                    <h4>Thomas Martin</h4>
+                    <div class="member-role">Responsable des Achats</div>
+                    <p class="member-bio">Expert en sélection de matériaux et relations avec nos artisans partenaires à travers l'Europe.</p>
                 </div>
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sophie Dubois">
-                    <h3>Sophie Dubois</h3>
-                    <p class="team-role">Styliste & Conseillère</p>
-                    <p>Diplômée de l'École de la Chaussure de Paris, elle assure la cohérence de nos collections.</p>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sophie Dubois">
+                    </div>
+                    <h4>Sophie Dubois</h4>
+                    <div class="member-role">Styliste & Conseillère</div>
+                    <p class="member-bio">Diplômée de l'École de la Chaussure de Paris, elle assure la cohérence et l'élégance de nos collections.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq">
+    <!-- FAQ Section -->
+    <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">Questions Fréquentes</h2>
-            <div class="faq-content">
-                <div class="faq-item">
+            <h2 class="section-title fade-in">Questions Fréquentes</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
                     <button class="faq-question">
                         <span>Comment choisir la bonne pointure ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Nous vous recommandons de consulter notre guide des tailles disponible sur chaque page produit. Si vous hésitez entre deux tailles, nous conseillons de prendre la pointure au-dessus.</p>
+                        <p>Nous vous recommandons de consulter notre guide des tailles disponible sur chaque page produit. Si vous hésitez entre deux tailles, nous conseillons de prendre la pointure au-dessus. N'hésitez pas à nous contacter pour des conseils personnalisés.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                
+                <div class="faq-item fade-in">
                     <button class="faq-question">
                         <span>Quelle est votre politique de retour ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Vous disposez de 30 jours pour retourner un article non porté et dans son emballage d'origine. Les retours sont gratuits et le remboursement est effectué sous 5 jours ouvrés.</p>
+                        <p>Vous disposez de 30 jours pour retourner un article non porté et dans son emballage d'origine. Les retours sont gratuits et le remboursement est effectué sous 5 jours ouvrés. Pour les chaussures portées, nous acceptons les retours sous certaines conditions.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                
+                <div class="faq-item fade-in">
                     <button class="faq-question">
                         <span>Proposez-vous des chaussures en grandes tailles ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Oui, nous proposons une sélection de modèles jusqu'à la pointure 44. Consultez notre collection "Grandes Tailles" pour découvrir nos modèles disponibles.</p>
+                        <p>Oui, nous proposons une sélection de modèles jusqu'à la pointure 44. Consultez notre collection "Grandes Tailles" pour découvrir nos modèles disponibles. Si vous ne trouvez pas votre taille, contactez-nous pour une commande spéciale.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                
+                <div class="faq-item fade-in">
                     <button class="faq-question">
                         <span>Livrez-vous à l'international ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Oui, nous livrons dans toute l'Europe. Les frais et délais de livraison varient selon la destination. Vous pouvez consulter les détails lors de votre commande.</p>
+                        <p>Oui, nous livrons dans toute l'Europe. Les frais et délais de livraison varient selon la destination. Vous pouvez consulter les détails lors de votre commande. Pour les livraisons hors Europe, contactez-nous pour obtenir un devis personnalisé.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content fade-in">
                 <h2>Prêt à Trouver Vos Chaussures Idéales ?</h2>
-                <p>Parcourez notre catalogue et découvrez des chaussures qui vous correspondent</p>
-                <a href="catalogue.html" class="btn">Explorer le Catalogue</a>
+                <p>Parcourez notre catalogue et découvrez des chaussures qui vous correspondent parfaitement</p>
+                <a href="catalogue.html" class="btn-primary">Explorer le Catalogue</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+                <div class="footer-brand">
+                    <h3>Chaussures d'Élégance</h3>
                     <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Mode, 75001 Paris</p>
-                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                        <p><i class="fas fa-envelope"></i> contact@chaussures-elegance.fr</p>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Catégories</h4>
                     <a href="categories/sandales.html">Sandales</a>
                     <a href="categories/nu-pieds.html">Nu-pieds</a>
                     <a href="categories/talons.html">Talons</a>
+                    <a href="categories/baskets.html">Baskets</a>
+                    <a href="categories/bottes.html">Bottes</a>
                 </div>
                 <div class="footer-links">
                     <h4>Navigation</h4>
                     <a href="index.html">Accueil</a>
                     <a href="catalogue.html">Catalogue</a>
                     <a href="about.html">À propos</a>
-                    <a href="index.html#contact">Contact</a>
+                    <a href="#contact">Contact</a>
                     <a href="#">Livraison & Retours</a>
                 </div>
-                <div class="footer-social">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                    <div class="payment-methods">
-                        <h4>Paiement Sécurisé</h4>
-                        <div class="payment-icons">
-                            <i class="fab fa-cc-visa"></i>
-                            <i class="fab fa-cc-mastercard"></i>
-                            <i class="fab fa-cc-paypal"></i>
-                            <i class="fab fa-cc-apple-pay"></i>
-                        </div>
-                    </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:contact@chaussures-elegance.fr">contact@chaussures-elegance.fr</a>
+                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="#">123 Avenue de la Mode, 75001 Paris</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Conditions générales</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/cart.js"></script>
+    <script>
+        // Gestion des FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordéon
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = this.nextElementSibling;
+                    
+                    // Fermer toutes les autres FAQ
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            q.parentElement.classList.remove('active');
+                        }
+                    });
+                    
+                    // Basculer la FAQ actuelle
+                    faqItem.classList.toggle('active');
+                });
+            });
+            
+            // Animation au scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            fadeElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+            
+            // Fonction de notification
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: var(--secondary-color);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 3000);
+            }
+            
+            // Ajouter les styles d'animation pour les notifications
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>

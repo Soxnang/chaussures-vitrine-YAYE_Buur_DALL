@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Catégories - Chaussures d'Élégance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques pour la page Catégories */
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #8B7355;
+            --accent-color: #D4AF37;
+            --light-color: #F5F5F5;
+            --gray-color: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+        
+        /* Page Header */
+        .categories-header {
+            background: linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98)), 
+                        url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .categories-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .categories-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Categories Grid */
+        .categories-section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .category-card-large {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .category-card-large:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image-large {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .category-card-large:hover .category-image-large img {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+        
+        .category-content-large {
+            padding: 35px;
+            position: relative;
+        }
+        
+        .category-name-large {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .category-description-large {
+            color: var(--gray-color);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+        
+        .category-count-large {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .category-price-range {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .category-arrow {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card-large:hover .category-arrow {
+            transform: translateX(10px);
+        }
+        
+        /* Category Details */
+        .category-details {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .details-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--gray-color);
+        }
+        
+        .tab-btn:hover,
+        .tab-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        .tab-content {
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .tab-pane h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+        
+        .tab-pane p {
+            color: var(--gray-color);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(139, 115, 85, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h4 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .feature-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 25px 30px;
+            background-color: white;
+            border: none;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        
+        .faq-answer p {
+            padding: 20px 0;
+            color: var(--gray-color);
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: #7a6348;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-brand p {
+            color: #aaa;
+            margin-bottom: 30px;
+            max-width: 300px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .categories-header h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .categories-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .categories-header p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .category-content-large {
+                padding: 25px;
+            }
+            
+            .category-name-large {
+                font-size: 1.6rem;
+            }
+            
+            .tab-content {
+                padding: 30px;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categories-header h1 {
+                font-size: 2rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-image-large {
+                height: 220px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .details-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="catalogue.html">Catalogue</a>
+                <a href="categories.html" class="active">Catégories</a>
+                <a href="about.html">À propos</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="categories-header">
+        <div class="container">
+            <h1 class="fade-in">Nos Catégories</h1>
+            <p class="fade-in">Découvrez notre sélection complète par type de chaussures</p>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Explorez Notre Collection</h2>
+            <p class="section-subtitle fade-in">Chaque catégorie a été soigneusement sélectionnée pour répondre à vos besoins spécifiques</p>
+            
+            <div class="categories-grid">
+                <!-- Sandales -->
+                <a href="categories/sandales.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1581101767113-1677dccc7f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sandales">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Sandales</h3>
+                        <p class="category-description-large">Légères, confortables et stylées pour vos journées ensoleillées. Parfaites pour l'été, la plage ou les soirées d'été.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">12 modèles</span>
+                            <span class="category-price-range">49,99€ - 129,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Nu-pieds -->
+                <a href="categories/nu-pieds.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nu-pieds">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Nu-pieds</h3>
+                        <p class="category-description-large">Élégance discrète et moderne pour un style raffiné. Idéaux pour les occasions spéciales ou un look sophistiqué au quotidien.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">8 modèles</span>
+                            <span class="category-price-range">65,99€ - 95,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Talons -->
+                <a href="categories/talons.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Talons">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Talons</h3>
+                        <p class="category-description-large">Sophistication et hauteur pour sublimer votre silhouette. Des escarpins classiques aux créations les plus audacieuses.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">15 modèles</span>
+                            <span class="category-price-range">89,99€ - 199,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Baskets -->
+                <a href="categories/baskets.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Baskets">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Baskets</h3>
+                        <p class="category-description-large">Confort et style urbain pour un look décontracté mais élégant. Parfaites pour la ville, le sport ou un usage quotidien.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">10 modèles</span>
+                            <span class="category-price-range">69,99€ - 149,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Bottes -->
+                <a href="categories/bottes.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bottes">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Bottes</h3>
+                        <p class="category-description-large">Robustes et élégantes pour affronter l'automne et l'hiver avec style. Des bottes classiques aux modèles les plus tendance.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">7 modèles</span>
+                            <span class="category-price-range">129,99€ - 249,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Chaussures de ville -->
+                <a href="catalogue.html" class="category-card-large fade-in">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaussures de ville">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content-large">
+                        <h3 class="category-name-large">Chaussures de Ville</h3>
+                        <p class="category-description-large">Élégance intemporelle pour le bureau et les occasions formelles. Un must-have pour une garde-robe sophistiquée.</p>
+                        <div class="category-stats">
+                            <span class="category-count-large">9 modèles</span>
+                            <span class="category-price-range">79,99€ - 179,99€</span>
+                            <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Details -->
+    <section class="category-details">
+        <div class="container">
+            <div class="details-container">
+                <div class="details-tabs fade-in">
+                    <button class="tab-btn active" data-tab="guide">Guide des Tailles</button>
+                    <button class="tab-btn" data-tab="entretien">Entretien</button>
+                    <button class="tab-btn" data-tab="materiaux">Matériaux</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="guide">
+                        <h3>Guide des Tailles</h3>
+                        <p>Choisir la bonne pointure est essentiel pour votre confort. Notre guide vous aidera à trouver la taille parfaite pour vos pieds.</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-ruler"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Mesurez vos pieds</h4>
+                                    <p>Mesurez la longueur de votre pied en position debout, du talon à l'orteil le plus long.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shoe-prints"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Consultez notre tableau</h4>
+                                    <p>Utilisez notre tableau de correspondance pour trouver votre pointure selon vos mesures.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Conseils pratiques</h4>
+                                    <p>Prenez toujours vos mesures en fin de journée, lorsque vos pieds sont légèrement gonflés.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Besoin d'aide ?</h4>
+                                    <p>Notre équipe est disponible pour vous conseiller par téléphone ou par email.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="entretien">
+                        <h3>Entretien de vos Chaussures</h3>
+                        <p>Prendre soin de vos chaussures prolonge leur durée de vie et préserve leur beauté. Voici nos conseils d'entretien.</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-broom"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Nettoyage régulier</h4>
+                                    <p>Utilisez une brosse douce pour enlever la poussière et un chiffon humide pour les taches.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tint-slash"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Protection contre l'eau</h4>
+                                    <p>Appliquez un imperméabilisant adapté au matériau de vos chaussures.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-box-open"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Stockage approprié</h4>
+                                    <p>Rangez vos chaussures dans un endroit frais et sec, à l'abri de la lumière directe.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Rotation</h4>
+                                    <p>Évitez de porter les mêmes chaussures deux jours de suite pour leur laisser le temps de sécher.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="materiaux">
+                        <h3>Nos Matériaux Premium</h3>
+                        <p>Nous sélectionnons avec soin les matériaux les plus qualitatifs pour assurer confort, durabilité et élégance.</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-paw"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Cuir véritable</h4>
+                                    <p>Matériau noble qui respire et s'adapte parfaitement à la forme de votre pied.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Cuir végétal</h4>
+                                    <p>Alternative écologique et durable, tout aussi qualitative que le cuir traditionnel.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Textiles techniques</h4>
+                                    <p>Matériaux respirants et légers, parfaits pour les chaussures de sport et d'été.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Matériaux recyclés</h4>
+                                    <p>Nous utilisons de plus en plus de matériaux recyclés dans nos collections.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Questions sur les Catégories</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>Quelle catégorie choisir selon la saison ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous recommandons les sandales et nu-pieds pour l'été, les baskets pour le printemps et l'automne, et les bottes pour l'hiver. Les talons et chaussures de ville sont parfaits pour toutes les saisons selon les occasions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>Proposez-vous des chaussures orthopédiques ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, nous avons une sélection de modèles conçus pour un meilleur soutien plantaire. Ces chaussures sont disponibles dans plusieurs catégories et peuvent être adaptées sur demande.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>Puis-je commander un modèle dans une autre couleur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pour certains modèles, nous pouvons proposer d'autres coloris sur commande spéciale. Contactez-nous pour vérifier la disponibilité et obtenir un devis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Vous avez une Question Spécifique ?</h2>
+                <p>Notre équipe d'experts est à votre disposition pour vous conseiller sur le choix de la catégorie qui vous convient le mieux</p>
+                <a href="#contact" class="btn-primary">Nous Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Chaussures d'Élégance</h3>
+                    <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Catégories</h4>
+                    <a href="categories/sandales.html">Sandales</a>
+                    <a href="categories/nu-pieds.html">Nu-pieds</a>
+                    <a href="categories/talons.html">Talons</a>
+                    <a href="categories/baskets.html">Baskets</a>
+                    <a href="categories/bottes.html">Bottes</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Accueil</a>
+                    <a href="catalogue.html">Catalogue</a>
+                    <a href="categories.html">Catégories</a>
+                    <a href="about.html">À propos</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:contact@chaussures-elegance.fr">contact@chaussures-elegance.fr</a>
+                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="#">123 Avenue de la Mode, 75001 Paris</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des onglets
+        document.addEventListener('DOMContentLoaded', function() {
+            // Onglets
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    // Désactiver tous les onglets
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Activer l'onglet sélectionné
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // FAQ Accordéon
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = this.nextElementSibling;
+                    
+                    // Fermer toutes les autres FAQ
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            q.parentElement.classList.remove('active');
+                        }
+                    });
+                    
+                    // Basculer la FAQ actuelle
+                    faqItem.classList.toggle('active');
+                });
+            });
+            
+            // Animation au scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            fadeElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+            
+            // Fonction de notification
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: var(--secondary-color);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 3000);
+            }
+            
+            // Ajouter les styles d'animation pour les notifications
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Gestion du clic sur les cartes catégories
+            document.querySelectorAll('.category-card-large').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    showNotification(`Redirection vers ${this.querySelector('.category-name-large').textContent}`);
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -25,6 +25,8 @@
                         <a href="categories/sandales.html">Sandales</a>
                         <a href="categories/nu-pieds.html">Nu-pieds</a>
                         <a href="categories/talons.html">Talons</a>
+                        <a href="categories/baskets.html">Baskets</a>
+                        <a href="categories/bottes.html">Bottes</a>
                     </div>
                 </div>
                 <a href="about.html">À propos</a>
@@ -77,6 +79,18 @@
                                 Talons
                                 <span class="filter-count">15</span>
                             </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="baskets" checked>
+                                <span class="checkmark"></span>
+                                Baskets
+                                <span class="filter-count">10</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="bottes" checked>
+                                <span class="checkmark"></span>
+                                Bottes
+                                <span class="filter-count">7</span>
+                            </label>
                         </div>
                     </div>
                     
@@ -98,4 +112,142 @@
                             <button class="color-option" data-color="blanc" style="background-color: #fff; border: 1px solid #ddd;"></button>
                             <button class="color-option" data-color="beige" style="background-color: #f5f5dc;"></button>
                             <button class="color-option" data-color="rouge" style="background-color: #c0392b;"></button>
-                            <button class="color-option" data-color="bleu" style="background-color: #3498db;"></button
+                            <button class="color-option" data-color="bleu" style="background-color: #3498db;"></button>
+                            <button class="color-option" data-color="doré" style="background-color: #ffd700;"></button>
+                            <button class="color-option" data-color="argent" style="background-color: #c0c0c0;"></button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Tailles</h4>
+                        <div class="size-options">
+                            <button class="size-option">36</button>
+                            <button class="size-option">37</button>
+                            <button class="size-option active">38</button>
+                            <button class="size-option">39</button>
+                            <button class="size-option">40</button>
+                            <button class="size-option">41</button>
+                            <button class="size-option">42</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Tri</h4>
+                        <select class="sort-select">
+                            <option value="default">Par défaut</option>
+                            <option value="price-asc">Prix croissant</option>
+                            <option value="price-desc">Prix décroissant</option>
+                            <option value="newest">Nouveautés</option>
+                            <option value="popular">Populaires</option>
+                        </select>
+                    </div>
+                </aside>
+                
+                <!-- Products Grid -->
+                <main class="catalogue-products">
+                    <div class="catalogue-header">
+                        <p class="results-count">52 produits trouvés</p>
+                        <div class="view-options">
+                            <button class="view-option active" data-view="grid"><i class="fas fa-th"></i></button>
+                            <button class="view-option" data-view="list"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="products-grid catalogue-view" id="productsContainer">
+                        <!-- Les produits seront chargés dynamiquement -->
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i> Précédent</button>
+                        <div class="pagination-numbers">
+                            <button class="pagination-number active">1</button>
+                            <button class="pagination-number">2</button>
+                            <button class="pagination-number">3</button>
+                            <span>...</span>
+                            <button class="pagination-number">5</button>
+                        </div>
+                        <button class="pagination-btn">Suivant <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Ne Manquez Aucune Nouveauté</h2>
+                <p>Abonnez-vous pour recevoir en avant-première nos nouvelles collections</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+                    <p>Votre destination pour des chaussures de qualité depuis 2005.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Mode, 75001 Paris</p>
+                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                        <p><i class="fas fa-envelope"></i> contact@chaussures-elegance.fr</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Catégories</h4>
+                    <a href="categories/sandales.html">Sandales</a>
+                    <a href="categories/nu-pieds.html">Nu-pieds</a>
+                    <a href="categories/talons.html">Talons</a>
+                    <a href="categories/baskets.html">Baskets</a>
+                    <a href="categories/bottes.html">Bottes</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Accueil</a>
+                    <a href="catalogue.html">Catalogue</a>
+                    <a href="about.html">À propos</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="#">Livraison & Retours</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="payment-methods">
+                        <h4>Paiement Sécurisé</h4>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Chaussures d'Élégance. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/catalogue.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Donner les permissions nécessaires
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Autoriser un déploiement simultané
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Create basic structure
+        run: |
+          mkdir -p css js images products categories
+          # Créer des fichiers par défaut s'ils n'existent pas
+          [ -f index.html ] || echo "<html><body><h1>Site en construction</h1></body></html>" > index.html
+          [ -f css/style.css ] || echo "/* Styles */" > css/style.css
+          [ -d .github/workflows ] || mkdir -p .github/workflows
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

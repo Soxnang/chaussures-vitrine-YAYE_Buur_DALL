@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - Chaussures d'Élégance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Chaussures<span>d'Élégance</span></a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="catalogue.html" class="active">Catalogue</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Catégories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="categories/sandales.html">Sandales</a>
+                        <a href="categories/nu-pieds.html">Nu-pieds</a>
+                        <a href="categories/talons.html">Talons</a>
+                    </div>
+                </div>
+                <a href="about.html">À propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Notre Catalogue Complet</h1>
+            <p>Découvrez tous nos modèles de chaussures</p>
+        </div>
+    </section>
+
+    <!-- Catalogue Content -->
+    <section class="catalogue">
+        <div class="container">
+            <div class="catalogue-content">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filtres</h3>
+                        <button class="clear-filters">Tout effacer</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Catégories</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="sandales" checked>
+                                <span class="checkmark"></span>
+                                Sandales
+                                <span class="filter-count">12</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="nu-pieds" checked>
+                                <span class="checkmark"></span>
+                                Nu-pieds
+                                <span class="filter-count">8</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="talons" checked>
+                                <span class="checkmark"></span>
+                                Talons
+                                <span class="filter-count">15</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Prix</h4>
+                        <div class="price-range">
+                            <input type="range" min="0" max="300" value="300" class="price-slider" id="priceRange">
+                            <div class="price-values">
+                                <span>0€</span>
+                                <span id="priceValue">300€</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Couleurs</h4>
+                        <div class="color-options">
+                            <button class="color-option" data-color="noir" style="background-color: #000;"></button>
+                            <button class="color-option" data-color="blanc" style="background-color: #fff; border: 1px solid #ddd;"></button>
+                            <button class="color-option" data-color="beige" style="background-color: #f5f5dc;"></button>
+                            <button class="color-option" data-color="rouge" style="background-color: #c0392b;"></button>
+                            <button class="color-option" data-color="bleu" style="background-color: #3498db;"></button
